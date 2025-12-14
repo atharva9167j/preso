@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>Preso | Build Beautiful Presentations using AI</title>
+    <meta name="title" content="Preso | Build Beautiful Presentations using AI for free" />
+    <meta name="description" content="Transform ideas into stunning presentations in seconds. Preso uses advanced AI to convert text, prompts, and documents into production-ready slide decks with professional aesthetics." />
+    <meta name="keywords" content="AI presentation, slide generator, deck builder, text to slides, Gemini AI, automated design, Preso, powerpoint alternative" />
+    <meta name="author" content="Preso Team" />
+    <meta name="theme-color" content="#4f46e5" />
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://preso-ai.vercel.app/" />
+    <meta property="og:title" content="Preso | Build Beautiful Presentations using AI for free" />
+    <meta property="og:description" content="Stop formatting slides. Start telling stories. Generate beautiful, professional decks instantly from simple text prompts using Preso." />
+    <meta property="og:image" content="/assets/logo.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://preso-ai.vercel.app/" />
+    <meta property="twitter:title" content="Preso | Build Beautiful Presentations using AI for free" />
+    <meta property="twitter:description" content="Stop formatting slides. Start telling stories. Generate beautiful, professional decks instantly from simple text prompts using Preso." />
+    <meta property="twitter:image" content="/assets/logo.png" />
+
+    <!-- Favicon (Assuming you might want to use the logo here too, or a specific favicon.ico) -->
+    <link rel="icon" type="image/ico" href="/assets/favicon.ico" />
+
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+    <!-- Google Fonts (Optimized Loading) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans&family=Lato&family=Montserrat&family=Oswald&family=Source+Sans+Pro&family=Raleway&family=PT+Sans&family=Merriweather&family=Noto+Sans&family=Poppins&family=Ubuntu&family=Playfair+Display&family=Lora&family=Inconsolata&family=Inter:wght@400;500;600;700&family=Nunito&family=Quicksand&family=Bebas+Neue&family=Josefin+Sans&family=Fjalla+One&family=Indie+Flower&family=Pacifico&family=Shadows+Into+Light&family=Anton&family=Dancing+Script&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Internal Styles -->
+    <style>
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+
+      @layer utilities {
+        @keyframes fade-in {
+          0% {
+            opacity: 0;
+            transform: translateY(50px);
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+
+        .animate-fade-in {
+          animation: fade-in 1s ease-out forwards;
+        }
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      /* Custom scrollbar for cleaner look */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+
+      @media print {
+        body * {
+          visibility: hidden;
+        }
+        #slide-container,
+        #slide-container * {
+          visibility: visible;
+        }
+        #slide-container {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: '1920px';
+          height: '1090px';
+          line-height: 1.2;
+          margin: 0;
+          border: none;
+          box-shadow: none;
+        }
+      }
+
+      /* Editor Specific Overrides */
+      [contenteditable="true"] {
+        outline: 2px dashed #6366f1; /* Indigo-500 */
+        outline-offset: 4px;
+        cursor: text !important;
+        min-width: 10px;
+      }
+
+      /* Ensure items in slide are interactive */
+      #slide-container > * {
+        pointer-events: auto;
+      }
+
+      /* Moveable Customization */
+      .moveable-control {
+        background: #fff !important;
+        border: 2px solid #6366f1 !important;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+      }
+      .moveable-line { background: #6366f1 !important; }
+    </style>
+  </head>
+  <body class="antialiased selection:bg-indigo-100 selection:text-indigo-700">
+    <div id="root"></div>
+    
+    <!-- PPTX & Canvas Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    
+    <!-- App Entry -->
+    <script type="module" src="./index.tsx"></script>
+    
+    <!-- Fallback for no-JS -->
+    <noscript>
+      <div style="padding: 20px; text-align: center; font-family: sans-serif;">
+        <h1>Preso requires JavaScript</h1>
+        <p>Please enable JavaScript to use this AI presentation generator.</p>
+      </div>
+    </noscript>
+  </body>
+</html>
