@@ -53,27 +53,28 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
             />
           </div>
           <hr className="ml-2 mr-2" />
+          <div className="py-1">
+            <Btn
+              icon={Type}
+              label="Add Text"
+              onClick={() => onAction("insert-text")}
+            />
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setView("add-image");
+              }}
+              className="w-full flex items-center justify-between px-3 py-2 text-left hover:bg-indigo-50 transition-colors text-slate-700"
+            >
+              <div className="flex items-center gap-3">
+                <Image size={14} className="opacity-70" />{" "}
+                <span>Add Image</span>
+              </div>
+              <ChevronRight size={14} className="opacity-40" />
+            </button>
+          </div>
         </>
       )}
-      <div className="py-1">
-        <Btn
-          icon={Type}
-          label="Add Text"
-          onClick={() => onAction("insert-text")}
-        />
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            setView("add-image");
-          }}
-          className="w-full flex items-center justify-between px-3 py-2 text-left hover:bg-indigo-50 transition-colors text-slate-700"
-        >
-          <div className="flex items-center gap-3">
-            <Image size={14} className="opacity-70" /> <span>Add Image</span>
-          </div>
-          <ChevronRight size={14} className="opacity-40" />
-        </button>
-      </div>
 
       {/* ADD IMAGE SUB-MENU */}
       {view === "add-image" && (
